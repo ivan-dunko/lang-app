@@ -1,0 +1,50 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Запись урока
+{% endblock %}
+
+{% block page-lead %}
+Sample Text
+{% endblock %}
+
+
+{% block content %}
+<div class="container-sm px-5 py-5" id="lesson-form">
+    <form method="post">
+        <div class="row px-5 py-2">
+            <h3>Новый урок</h3>
+        </div>
+        <div class="row px-5 py-2">
+            <div class="col-md-3">
+                <label for="topic">Тема:</label>
+                <select name="topic">
+                    {% for topic in topics %}
+                    <option>
+                        {{ topic }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="date">Дата урока:</label>
+                <input type="date" class="form-control input-lg" name="date" id="date" value required>
+            </div>
+            <div class="col-md-3">
+                <label for="grade">Ваша оценка:</label>
+                <br/>
+                <select name="grade">
+                    {% for i in grades %}
+                    <option>
+                        {{ i }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="row px-5 py-2">
+            <button type="submit" class="btn btn-primary" formaction="/send-lesson">Сохранить</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

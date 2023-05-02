@@ -1,0 +1,37 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Новое слово
+{% endblock %}
+
+{% block page-lead %}
+Запишите слово на английском, его перевод и изображение
+{% endblock %}
+
+
+{% block content %}
+<div class="container-sm px-5 py-5" id="lesson-form">
+    <form method="post" enctype="multipart/form-data">
+        <div class="row px-5 py-2">
+            <h3>Новое слово</h3>
+        </div>
+        <div class="row px-5 py-2">
+            <div class="col-md-3">
+                <label for="topic">Слово:</label>
+                <input type="text" class="form-control input-lg" name="word" id="word" value required>
+            </div>
+            <div class="col-md-3">
+                <label for="date">Перевод:</label>
+                <input type="text" class="form-control input-lg" name="translation" id="translation" value required>
+            </div>
+            <div class="col-md-3">
+                <label for="grade">Изображение:</label>
+                <input type="file" class="form-control input-lg" name="image" id="image" value required>
+            </div>
+        </div>
+        <div class="row px-5 py-2">
+            <button type="submit" class="btn btn-primary" formaction="/send-anki">Сохранить</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
